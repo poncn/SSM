@@ -2,6 +2,7 @@ package com.poncn.controller;
 
 import com.poncn.model.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,7 +23,7 @@ public class UserController {
     }
 
     @RequestMapping("/query")
-    public String queryById(User user) {
+    public String query(User user) {
         System.out.println(user.getId());
         System.out.println(user.getUsername());
         System.out.println(user.getPassword());
@@ -30,15 +31,26 @@ public class UserController {
     }
 
     @RequestMapping("/queryUsername")
-    public String queryById(HttpServletRequest request) {
+    public String queryUsername(HttpServletRequest request) {
         System.out.println(request.getParameter("username"));
         return "forward:/index";
     }
 
     @RequestMapping("/queryPassword")
-    public String queryById(@RequestParam(defaultValue = "", value = "pwd", required = false) String password) {
+    public String queryPassword(@RequestParam(defaultValue = "", value = "pwd", required = false) String password) {
         System.out.println(password);
         return "forward:/index";
     }
 
+    @RequestMapping("/queryId/{id}.html")
+    public String queryId(@PathVariable String id) {
+        System.out.println(id);
+        return "forward:/index";
+    }
+
+    @RequestMapping("/queryNum/{id}")
+    public String queryNum(@PathVariable String id) {
+        System.out.println(id);
+        return "forward:/index";
+    }
 }
