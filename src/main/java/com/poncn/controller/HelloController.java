@@ -10,26 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class HelloController {
-    @RequestMapping("/index")
-    public String index() {
-        System.out.println("hello word!");
-        return "index";
-    }
+
 
     @RequestMapping("/login")
     public String login() {
         return "redirect:login.jsp";
     }
 
-    @RequestMapping("/delete")
-    public String delete() {
-        return "redirect:/index";
-    }
-
-    @RequestMapping("/update")
-    public String update() {
-        return "forward:/index";
-    }
+//    @RequestMapping("/delete")
+//    public String delete() {
+//        return "redirect:/index";
+//    }
+//
+//    @RequestMapping("/update")
+//    public String update() {
+//        return "forward:/index";
+//    }
 
 
 }
